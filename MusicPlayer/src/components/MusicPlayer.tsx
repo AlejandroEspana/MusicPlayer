@@ -122,6 +122,13 @@ const MusicPlayer = () => {
         {/* Controls - Más Grandes */}
         <div className="flex items-center justify-center gap-6 sm:gap-8 mb-10 sm:mb-12">
           <button 
+            className="btn-primary px-6 py-4 sm:px-8 sm:py-5 rounded-xl tooltip text-lg sm:text-xl md:text-2xl"
+            data-tooltip="Clear Playlist"
+            onClick={() => MusicPlayerUtils.clearPlaylist(playlist, setSongs, setCurrentSong, setIsPlaying, audioRef)}
+          >
+            🗑 Clear
+          </button>
+          <button 
             className="control-button w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 flex items-center justify-center rounded-full text-white tooltip"
             data-tooltip="Previous"
             onClick={() => MusicPlayerUtils.skipToPrevious(currentSong, playlist, audioRef, setCurrentSong)}
@@ -142,11 +149,10 @@ const MusicPlayer = () => {
             <span className="text-3xl sm:text-4xl md:text-5xl">⏭</span>
           </button>
           <button 
-            className="control-button w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 flex items-center justify-center rounded-full text-white tooltip"
-            data-tooltip="Shuffle"
+            className="shuffle-button"
             onClick={handleShuffle}
           >
-            <span className="text-3xl sm:text-4xl md:text-5xl">🔀</span>
+            🎲
           </button>
         </div>
         <div className="search-container mb-6">

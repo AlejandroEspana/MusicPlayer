@@ -26,7 +26,7 @@ const MusicPlayer = () => {
     return cleanup;
   }, [currentSong]);
 
-  // 📥 Subir canciones
+  //  Subir canciones
   const handleUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       MusicPlayerUtils.handleFileUpload(
@@ -101,9 +101,7 @@ const MusicPlayer = () => {
             </h3>
             <audio 
               ref={audioRef} 
-              controls 
-              className="w-full mb-6 scale-110" 
-              style={{ transform: 'scale(1.1)' }}
+
             />
             <p className="text-gray-300 text-xl sm:text-2xl">
               {MusicPlayerUtils.formatTime(currentTime)} /{" "}

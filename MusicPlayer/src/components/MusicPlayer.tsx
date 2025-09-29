@@ -12,7 +12,6 @@ const MusicPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
-  const [isDragOver, setIsDragOver] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
   // 🎧 Setup listeners
@@ -191,6 +190,14 @@ const MusicPlayer = () => {
                   <div className="text-lg sm:text-xl text-gray-400 mt-1">
                     {MusicPlayerUtils.formatFileSize(song.file.size)} MB
                   </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <button
+                    className="btn-danger text-sm px-2 py-1 rounded"
+                    onClick={() => MusicPlayerUtils.removeSong(song, playlist, currentSong, setSongs, setCurrentSong, setIsPlaying, audioRef)}
+                  >
+                    ✕
+                  </button>
                 </div>
               </li>
             ))}
